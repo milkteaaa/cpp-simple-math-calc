@@ -1,5 +1,10 @@
 #pragma once
 
+/*
+* C++ mathematic library
+* won't crash when user attempts to divide a number by zero (undefined)
+*/
+
 namespace mathlibrary
 {
 	namespace algebra 

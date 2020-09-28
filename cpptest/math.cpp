@@ -3,21 +3,21 @@
 #include <Windows.h>
 
 
-int inputfromuser()
+int inputfromuser() // code to return user input for braces without having to use std::cin every single time
 {
 	int input{};
 	std::cin >> input;
 	return input;
 }
 
-double fractinputfromuser()
+double fractinputfromuser() // double input implementation for fractional numbers
 {
 	double input{};
 	std::cin >> input;
 	return input;
 }
 
-std::string removespace(std::string& str)
+std::string removespace(std::string& str) // quick implementation for removing whitespace
 {
 	str.erase(std::remove(str.begin(), str.end(), ' '), str.end());
 	return str;
@@ -83,7 +83,7 @@ int main()
 			exit(0);
 		}
 	}
-	else if (calctype == "2" || calctype == "conversion" || calctype == "Conversion")
+	else if (calctype == "2" || calctype == "conversion" || calctype == "Conversion") /* i do this for a reason ok */
 	{
 		std::cout << "Current calculation type: Conversion\n";
 		std::string convtype;
@@ -91,22 +91,22 @@ int main()
 		std::cin >> convtype;
 		if (convtype == "length" || convtype == "Length")
 		{
-			
+			/* not implemented */
 		}
 		else if (convtype == "area" || convtype == "Area")
 		{
-			
+			/* not implemented */
 		}
 		else if (convtype == "volume" || convtype == "Volume")
 		{
-			
+			/* not implemented */
 		}
 		else if (convtype == "velocity" || convtype == "Velocity")
 		{
 			std::cout << "Please select a conversion unit (kmph>mps || mps>kmph)\n";
 			std::string convunit;
 			std::cin >> convunit;
-			convunit.erase(std::remove(convunit.begin(), convunit.end(), ' '), convunit.end());
+			convunit.erase(std::remove(convunit.begin(), convunit.end(), ' '), convunit.end()); // doesn't work ;(
 			//removespace(convunit);
 			if (convunit == "km/h>m/s" || convunit == "kmph>mps")
 			{
@@ -137,11 +137,12 @@ int main()
 		}
 		else
 		{
-			std::cout << "Calculation method unknown, restarting in 5 seconds..\n";
+			std::cout << "Conversion type unknown, restarting in 5 seconds..\n";
 			Sleep(5000);
 			system("CLS");
 			main();
 		}
+		/* simple restart approach instead of filling up the console making it hard to read */
 		std::string aftermath;
 		std::cout << "Do you want to start again? (Y/N)\n";
 		std::cin >> aftermath;
