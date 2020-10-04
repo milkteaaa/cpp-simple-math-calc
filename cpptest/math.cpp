@@ -158,6 +158,11 @@ int main()
 			exit(0);
 		}
 	}
-	
+	else if (calctype == "3" || calctype == "advanced algorithms" || calctype == "Advanced Algorithms" || calctype == "algorithms")
+	{
+		std::cout << "Current calculation type: Algorithms\n";
+		std::cout << "Input an array to sort:";
+		
+	}
 	return 0;
 }

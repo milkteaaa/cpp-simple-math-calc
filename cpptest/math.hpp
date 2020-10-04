@@ -5,6 +5,11 @@
 * won't crash when user attempts to divide a number by zero (undefined)
 */
 
+///
+// Including libs
+///
+#include <algorithm>
+
 namespace mathlibrary
 {
 	namespace algebra 
@@ -54,6 +59,17 @@ namespace mathlibrary
 				double a = mps / 3.6;
 				return a;
 			}
+		}
+	}
+
+	namespace algorithm
+	{
+		int sortnum(int array[])
+		{
+			int n = sizeof(array) / sizeof(array[0]);
+			std::sort(array, array + n);
+			for (int i = 0; i < n; ++i)
+				return array[i];
 		}
 	}
 }
