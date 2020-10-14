@@ -2,6 +2,9 @@
 #include "console.hpp"
 #include <iostream>
 
+// define this so the console returns your input
+//#define RETURN_UVALUE
+
 int main();
 
 int inputfromuser() // code to return user input for braces without having to use std::cin every single time
@@ -52,15 +55,19 @@ int main()
 	std::cin >> calctype;
 	if (calctype == "1" || calctype == "algebra" || calctype == "Algebra")
 	{
-		std::cout << "Current calculation type: Algebra\n";
+		std::cout << cl_iyellow << "Current calculation type: Algebra\n";
 		std::cout << "Enter current x value: ";
 		signed int x{ inputfromuser() };
+#ifdef RETURN_UVALUE
 		std::cout << "Your x value is: " << x << "\n";
+#endif
 		std::cout << "Enter current y value: ";
 		signed int y{ inputfromuser() };
+#ifdef RETURN_UVALUE
 		std::cout << "Your y value is: " << y << "\n";
+#endif
 		std::string calcmode;
-		std::cout << "Please select a calculation mode (add, subtract, multiply, divide)\n";
+		std::cout << cl_iaqua << "Please select a calculation mode (add, subtract, multiply, divide)\n" << cl_white;
 		std::cin >> calcmode;
 		if (calcmode == "add" || calcmode == "Add" || calcmode == "+")
 		{
@@ -95,7 +102,7 @@ int main()
 		}
 		else if (aftermath == "N" || aftermath == "n")
 		{
-			std::cout << "See you again!" << std::endl;
+			std::cout << clred << "[SYSTEM] See you again!" << std::endl;
 			Sleep(1000);
 			exit(0);
 		}
