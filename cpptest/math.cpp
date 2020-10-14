@@ -8,13 +8,18 @@
 //define this to use untested functions
 //#define ALLOW_UNTESTED
 
+/*
+* @TODO: clean up code, use a different .cpp file and a header for user input
+* @UNFINISHED: conversion (length, area, volume), advanced algorithms (prob later)
+*/
+
 int main();
 
 int inputfromuser() // code to return user input for braces without having to use std::cin every single time
 {
 	int input{};
 	std::cin >> input;
-	if (!std::cin)
+	if (!std::cin) // crash ( i don't know how to properly restart the application ) when input is non-numeric
 	{
 		std::cin.clear();
 		std::cout << clred << "[ERROR] Non-numeric character detected, stopping in 2 seconds..\n" << cl_white;
@@ -29,7 +34,7 @@ double fractinputfromuser() // double input implementation for fractional number
 {
 	double input{};
 	std::cin >> input;
-	if (!std::cin)
+	if (!std::cin) // same as above
 	{
 		std::cin.clear();
 		std::cout << clred << "[ERROR] Non-numeric character detected, stopping in 2 seconds..\n" << cl_white;
@@ -53,7 +58,7 @@ int main()
 	RECT r;
 	GetWindowRect(console, &r);
 	MoveWindow(console, r.left, r.top, 600, 400, TRUE);
-	std::string calctype;
+	std::string calctype; //setting a string to get calculation type from user
 	std::cout << cl_icyan << "Please select a calculation type:" << cl_white << "\n1 - Algebra\n2 - Conversion\n3 - Advanced Algorithms\n";
 	std::cin >> calctype;
 	if (calctype == "1" || calctype == "algebra" || calctype == "Algebra")
@@ -96,7 +101,7 @@ int main()
 			main();
 		}
 		std::string aftermath;
-		std::cout << "Do you want to start again? (Y/N)\n";
+		std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
 		std::cin >> aftermath;
 		if (aftermath == "Y" || aftermath == "y")
 		{
@@ -105,7 +110,7 @@ int main()
 		}
 		else if (aftermath == "N" || aftermath == "n")
 		{
-			std::cout << clred << "[SYSTEM] See you again!" << std::endl;
+			std::cout << clred << "[SYSTEM] See you again!\n";
 			Sleep(1000);
 			exit(0);
 		}
@@ -118,7 +123,12 @@ int main()
 		std::cin >> convtype;
 		if (convtype == "length" || convtype == "Length")
 		{
-			/* not implemented */
+			/* placeholder code */
+			std::cout << clred << "[ALGORITHM] Calculation type unfinished, restarting program in 2 seconds...\n";
+			Sleep(2000);
+			system("CLS");
+			main();
+			/* untested */
 #ifdef ALLOW_UNTESTED
 			std::cout << cl_iaqua << "Please select a conversion unit type (Imperial || Metric)";
 			std::string convutype;
@@ -154,10 +164,20 @@ int main()
 		}
 		else if (convtype == "area" || convtype == "Area")
 		{
+			/* placeholder code */
+			std::cout << clred << "[ALGORITHM] Calculation type unfinished, restarting program in 2 seconds...\n";
+			Sleep(2000);
+			system("CLS");
+			main();
 			/* not implemented */
 		}
 		else if (convtype == "volume" || convtype == "Volume")
 		{
+			/* placeholder code */
+			std::cout << clred << "[ALGORITHM] Calculation type unfinished, restarting program in 2 seconds...\n";
+			Sleep(2000);
+			system("CLS");
+			main();
 			/* not implemented */
 		}
 		else if (convtype == "velocity" || convtype == "Velocity")
@@ -180,7 +200,7 @@ int main()
 				std::cout << "Conversion result: " << mathlibrary::conversion::velocity::mpstokmph(x) << " km/h\n";
 			}
 			std::string aftermath;
-			std::cout << "Do you want to start again? (Y/N)\n";
+			std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
 			std::cin >> aftermath;
 			if (aftermath == "Y" || aftermath == "y")
 			{
@@ -189,7 +209,7 @@ int main()
 			}
 			else if (aftermath == "N" || aftermath == "n")
 			{
-				std::cout << clred << "[SYSTEM] See you again!" << std::endl;
+				std::cout << clred << "[SYSTEM] See you again!\n";
 				Sleep(1000);
 				exit(0);
 			}
@@ -203,7 +223,7 @@ int main()
 		}
 		/* simple restart approach instead of filling up the console making it hard to read */
 		std::string aftermath;
-		std::cout << "Do you want to start again? (Y/N)\n";
+		std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
 		std::cin >> aftermath;
 		if (aftermath == "Y" || aftermath == "y")
 		{
@@ -212,7 +232,7 @@ int main()
 		}
 		else if (aftermath == "N" || aftermath == "n")
 		{
-			std::cout << clred << "[SYSTEM] See you again!" << std::endl;
+			std::cout << clred << "[SYSTEM] See you again!\n";
 			Sleep(1000);
 			exit(0);
 		}
