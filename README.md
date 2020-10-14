@@ -1,5 +1,5 @@
-# C++ Math Calculator
-Simple math calculator in C++ for testing purposes [![GitHub Issues](https://img.shields.io/github/issues/yuukixdev/cpp-simple-math-calc)](https://github.com/yuukixdev/cpp-simple-math-calc/issues)
+# C++ Math Calculator  [![GitHub Issues](https://img.shields.io/github/issues/yuukixdev/cpp-simple-math-calc)](https://github.com/yuukixdev/cpp-simple-math-calc/issues)
+Simple math calculator in C++ for testing purposes
 # Functionalities
 - Basic algebra (addition, subtraction, multiplication, division)
 - Basic Unit Conversion (Length, Area, Volume, Velocity)
