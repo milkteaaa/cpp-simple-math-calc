@@ -1,12 +1,21 @@
-#include <iostream>
 #include "math.hpp"
-#include <Windows.h>
+#include "console.hpp"
+#include <iostream>
 
+int main();
 
 int inputfromuser() // code to return user input for braces without having to use std::cin every single time
 {
 	int input{};
 	std::cin >> input;
+	if (!std::cin)
+	{
+		std::cin.clear();
+		std::cout << clred << "[ERROR] Non-numeric character detected, stopping in 2 seconds..\n" << cl_white;
+		Sleep(2000);
+		system("CLS");
+		exit(EXIT_FAILURE);
+	}
 	return input;
 }
 
@@ -14,6 +23,14 @@ double fractinputfromuser() // double input implementation for fractional number
 {
 	double input{};
 	std::cin >> input;
+	if (!std::cin)
+	{
+		std::cin.clear();
+		std::cout << clred << "[ERROR] Non-numeric character detected, stopping in 2 seconds..\n" << cl_white;
+		Sleep(2000);
+		system("CLS");
+		exit(EXIT_FAILURE);
+	}
 	return input;
 }
 
@@ -31,7 +48,7 @@ int main()
 	GetWindowRect(console, &r);
 	MoveWindow(console, r.left, r.top, 600, 400, TRUE);
 	std::string calctype;
-	std::cout << "Please select a calculation type:\n1 - Algebra\n2 - Conversion\n3 - Advanced Algorithms\n";
+	std::cout << cl_icyan << "Please select a calculation type:" << cl_white << "\n1 - Algebra\n2 - Conversion\n3 - Advanced Algorithms\n";
 	std::cin >> calctype;
 	if (calctype == "1" || calctype == "algebra" || calctype == "Algebra")
 	{
@@ -63,7 +80,7 @@ int main()
 		}
 		else
 		{
-			std::cout << "Calculation method unknown, restarting in 5 seconds..\n";
+			std::cout << clred << "Calculation method unknown, restarting in 5 seconds..\n" << cl_white;
 			Sleep(5000);
 			system("CLS");
 			main();

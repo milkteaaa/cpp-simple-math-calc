@@ -142,6 +142,7 @@
     <ClCompile Include="math.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="console.hpp" />
     <ClInclude Include="math.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

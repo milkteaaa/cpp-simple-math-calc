@@ -9,6 +9,7 @@
 // Including libs
 ///
 #include <algorithm>
+#include <iostream>
 
 namespace mathlibrary
 {
