@@ -46,6 +46,16 @@ namespace mathlibrary
 			signed int a = x / y;
 			return a;
 		}
+
+		namespace advanced_algebra
+		{
+			double squarert(int x)
+			{
+				double n = sqrt(x);
+				return n;
+			}
+		}
+
 	}
 	
 	namespace conversion
