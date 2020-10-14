@@ -41,7 +41,7 @@ namespace mathlibrary
 		{
 			if (y == 0)
 			{
-				std::cout << clred << "[ALGORITHM] Division by 0 is undefined\n" << cl_white;
+				std::cout << clred << "[MATH ERROR] Division by 0 is undefined\n" << cl_white;
 				return NULL;
 			}
 			else
@@ -57,7 +57,7 @@ namespace mathlibrary
 			{
 				if (x < 0)
 				{
-					std::cout << clred << "[ALGORITHM] Cannot sqrt a value of negative.\n" << cl_white;
+					std::cout << clred << "[MATH ERROR] Cannot sqrt a value of negative.\n" << cl_white;
 
 				}
 				else
