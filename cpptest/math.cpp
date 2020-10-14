@@ -6,7 +6,7 @@
 //#define RETURN_UVALUE
 
 //define this to use untested functions
-//#define ALLOW_UNTESTED
+#define ALLOW_UNTESTED
 
 /*
 * @TODO: clean up code, use a different .cpp file and a header for user input
@@ -117,7 +117,7 @@ int main()
 	{
 		std::cout << "Current calculation type: Conversion\n";
 		std::string convtype;
-		std::cout << "Please select a conversion unit group (Length, Area, Volume, Velocity)";
+		std::cout << "Please select a conversion unit group (Length, Area, Volume, Velocity)\n";
 		std::cin >> convtype;
 		if (convtype == "length" || convtype == "Length")
 		{
@@ -236,14 +236,41 @@ int main()
 		}
 	}
 	else if (calctype == "3" || calctype == "advanced algorithms" || calctype == "Advanced Algorithms" || calctype == "algorithms")
-	{
+	{		
+#ifdef ALLOW_UNTESTED
+		std::cout << "Current calculation type: Algorithms\n";
+		std::cout << "Enter a number: ";
+		int num = { inputfromuser() };
+		int fl = mathlibrary::algorithm::isPrime(num);
+		if (fl == 1)
+		{
+			std::cout << cl_igreen << "Given number is a prime number.\n" << cl_white;
+		}
+		else if (fl == 0)
+		{
+			std::cout << cl_igreen << "Given number is not a prime number.\n" << cl_white;
+		}
+		std::string aftermath;
+		std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
+		std::cin >> aftermath;
+		if (aftermath == "Y" || aftermath == "y")
+		{
+			system("CLS");
+			main();
+		}
+		else if (aftermath == "N" || aftermath == "n")
+		{
+			std::cout << clred << "[SYSTEM] See you again!\n";
+			Sleep(1000);
+			exit(0);
+		}
+#endif
+
+#ifndef ALLOW_UNTESTED
 		std::cout << clred << "[ALGORITHM] Calculation type unfinished, restarting program in 2 seconds...\n";
 		Sleep(2000);
 		system("CLS");
 		main();
-#ifdef ALLOW_UNTESTED
-		std::cout << "Current calculation type: Algorithms\n";
-		std::cout << "Input an array to sort:";
 #endif
 		/* not implemented */
 	}

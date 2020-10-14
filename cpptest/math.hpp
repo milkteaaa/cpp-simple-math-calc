@@ -10,6 +10,7 @@
 ///
 #include <algorithm>
 #include <iostream>
+#include <wtypes.h>
 
 namespace mathlibrary
 {
@@ -76,6 +77,26 @@ namespace mathlibrary
 			std::sort(array, array + n);
 			for (int i = 0; i < n; ++i)
 				return array[i];
+		}
+
+		int isPrime(int n)
+		{
+			int m = 0;
+			int i = 0;
+			int flag = 0;
+			m = n / 2;
+			for (i = 2; i <= m; i++)
+			{
+				if (n % i == 0)
+				{
+					flag = 1;
+					return FALSE;
+					break;
+				}
+			}
+			if (flag == 0)
+				return TRUE;
+			
 		}
 	}
 }
