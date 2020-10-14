@@ -12,6 +12,8 @@
 #include <iostream>
 #include <wtypes.h>
 
+//#define ALLOW_UNTESTED
+
 namespace mathlibrary
 {
 	namespace algebra 
@@ -71,6 +73,7 @@ namespace mathlibrary
 
 	namespace algorithm
 	{
+#ifdef ALLOW_UNTESTED
 		int sortnum(int array[])
 		{
 			int n = sizeof(array) / sizeof(array[0]);
@@ -78,7 +81,7 @@ namespace mathlibrary
 			for (int i = 0; i < n; ++i)
 				return array[i];
 		}
-
+#endif
 		int isPrime(int n)
 		{
 			int m = 0;
@@ -95,8 +98,15 @@ namespace mathlibrary
 				}
 			}
 			if (flag == 0)
+				return TRUE;			
+		}
+
+		int isEvenorOdd(int n)
+		{			
+			if (n % 2 == 0)
 				return TRUE;
-			
+			else
+				return FALSE;
 		}
 	}
 }

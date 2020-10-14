@@ -239,30 +239,66 @@ int main()
 	{		
 #ifdef ALLOW_UNTESTED
 		std::cout << "Current calculation type: Algorithms\n";
-		std::cout << "Enter a number: ";
-		int num = { inputfromuser() };
-		int fl = mathlibrary::algorithm::isPrime(num);
-		if (fl == 1)
+		std::cout << "Please select an algorithm (isPrime || isEven)\n";
+		std::string algotype;
+		std::cin >> algotype;
+		if (algotype == "isprime" || algotype == "isPrime")
 		{
-			std::cout << cl_igreen << "Given number is a prime number.\n" << cl_white;
+			// check if a number is prime
+			std::cout << "Enter a number: ";
+			int num = { inputfromuser() };
+			int fl = mathlibrary::algorithm::isPrime(num);
+			if (fl == 1)
+			{
+				std::cout << cl_igreen << "Given number is a prime number.\n" << cl_white;
+			}
+			else if (fl == 0)
+			{
+				std::cout << cl_igreen << "Given number is not a prime number.\n" << cl_white;
+			}
+			std::string aftermath;
+			std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
+			std::cin >> aftermath;
+			if (aftermath == "Y" || aftermath == "y")
+			{
+				system("CLS");
+				main();
+			}
+			else if (aftermath == "N" || aftermath == "n")
+			{
+				std::cout << clred << "[SYSTEM] See you again!\n";
+				Sleep(1000);
+				exit(0);
+			}
 		}
-		else if (fl == 0)
+		else if (algotype == "iseven" || algotype == "isEven")
 		{
-			std::cout << cl_igreen << "Given number is not a prime number.\n" << cl_white;
-		}
-		std::string aftermath;
-		std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
-		std::cin >> aftermath;
-		if (aftermath == "Y" || aftermath == "y")
-		{
-			system("CLS");
-			main();
-		}
-		else if (aftermath == "N" || aftermath == "n")
-		{
-			std::cout << clred << "[SYSTEM] See you again!\n";
-			Sleep(1000);
-			exit(0);
+			std::cout << "Enter a number: ";
+			int num{ inputfromuser() };
+			int flag = mathlibrary::algorithm::isEvenorOdd(num);
+			if (flag == 1)
+			{
+				std::cout << cl_igreen << "Given number is even.\n";
+			}
+			else if (flag == 0)
+			{
+				std::cout << cl_igreen << "Given number is odd.\n";
+			}
+			// i might put this aftermath thing into a seperate function, i'm tired of copy + pasting the same code over and over
+			std::string aftermath;
+			std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
+			std::cin >> aftermath;
+			if (aftermath == "Y" || aftermath == "y")
+			{
+				system("CLS");
+				main();
+			}
+			else if (aftermath == "N" || aftermath == "n")
+			{
+				std::cout << clred << "[SYSTEM] See you again!\n";
+				Sleep(1000);
+				exit(0);
+			}
 		}
 #endif
 
