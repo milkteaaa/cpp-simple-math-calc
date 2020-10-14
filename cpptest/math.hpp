@@ -47,6 +47,11 @@ namespace mathlibrary
 	
 	namespace conversion
 	{
+		namespace length
+		{
+			// @TODO: add conversion for lengths
+		}
+
 		namespace velocity
 		{
 			double kmphtomps(double kmph)

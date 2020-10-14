@@ -5,6 +5,9 @@
 // define this so the console returns your input
 //#define RETURN_UVALUE
 
+//define this to use untested functions
+//#define ALLOW_UNTESTED
+
 int main();
 
 int inputfromuser() // code to return user input for braces without having to use std::cin every single time
@@ -87,7 +90,7 @@ int main()
 		}
 		else
 		{
-			std::cout << clred << "Calculation method unknown, restarting in 5 seconds..\n" << cl_white;
+			std::cout << clred << "[ALGORITHM] Calculation method unknown, restarting in 5 seconds..\n" << cl_white;
 			Sleep(5000);
 			system("CLS");
 			main();
@@ -116,6 +119,38 @@ int main()
 		if (convtype == "length" || convtype == "Length")
 		{
 			/* not implemented */
+#ifdef ALLOW_UNTESTED
+			std::cout << cl_iaqua << "Please select a conversion unit type (Imperial || Metric)";
+			std::string convutype;
+			std::cin >> convutype;
+			if (convutype == "imperial" || convutype == "Imperial")
+			{
+				// im not familiar with imperial stuff
+			}
+			else if (convutype == "metric" || convutype == "Metric")
+			{
+				std::cout << "Please select a conversion unit (mm || cm || m || km)";
+					// this is actually time-consuming
+				std::string convunit;
+				if (convunit == "mm")
+				{
+					// @TODO: finish this
+				}
+				else if (convunit == "cm")
+				{
+					// @TODO: finish this
+				}
+				else if (convunit == "m")
+				{
+					// @TODO: finish this
+				}
+				else if (convunit == "km")
+				{
+					// @TODO: finish this
+				}
+			}
+
+#endif
 		}
 		else if (convtype == "area" || convtype == "Area")
 		{
@@ -127,7 +162,7 @@ int main()
 		}
 		else if (convtype == "velocity" || convtype == "Velocity")
 		{
-			std::cout << "Please select a conversion unit (kmph>mps || mps>kmph)\n";
+			std::cout << cl_iaqua << "Please select a conversion unit (kmph>mps || mps>kmph)\n" << cl_white;
 			std::string convunit;
 			std::cin >> convunit;
 			convunit.erase(std::remove(convunit.begin(), convunit.end(), ' '), convunit.end()); // doesn't work ;(
@@ -154,14 +189,14 @@ int main()
 			}
 			else if (aftermath == "N" || aftermath == "n")
 			{
-				std::cout << "See you again!" << std::endl;
+				std::cout << clred << "[SYSTEM] See you again!" << std::endl;
 				Sleep(1000);
 				exit(0);
 			}
 		}
 		else
 		{
-			std::cout << "Conversion type unknown, restarting in 5 seconds..\n";
+			std::cout << clred << "[ALGORITHM] Conversion type unknown / unfinished, restarting in 5 seconds..\n";
 			Sleep(5000);
 			system("CLS");
 			main();
@@ -177,16 +212,22 @@ int main()
 		}
 		else if (aftermath == "N" || aftermath == "n")
 		{
-			std::cout << "See you again!" << std::endl;
+			std::cout << clred << "[SYSTEM] See you again!" << std::endl;
 			Sleep(1000);
 			exit(0);
 		}
 	}
 	else if (calctype == "3" || calctype == "advanced algorithms" || calctype == "Advanced Algorithms" || calctype == "algorithms")
 	{
+		std::cout << clred << "[ALGORITHM] Calculation type unfinished, restarting program in 2 seconds...\n";
+		Sleep(2000);
+		system("CLS");
+		main();
+#ifdef ALLOW_UNTESTED
 		std::cout << "Current calculation type: Algorithms\n";
 		std::cout << "Input an array to sort:";
-		
+#endif
+		/* not implemented */
 	}
 	return 0;
 }
