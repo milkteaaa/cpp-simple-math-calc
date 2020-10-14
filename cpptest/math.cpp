@@ -1,4 +1,4 @@
-#include "math.hpp"
+﻿#include "math.hpp"
 #include "console.hpp"
 #include <iostream>
 
@@ -69,7 +69,7 @@ int main()
 		std::cin >> albtype;
 		if (albtype == "basic" || albtype == "Basic")
 		{
-			std::cout << cl_iyellow << "Current calculation type: Algebra\n";
+			std::cout << cl_iyellow << "[ INFORMATION ] Current calculation type: Algebra\n";
 			std::cout << "Enter current x value: ";
 			signed int x{ inputfromuser() };
 #ifdef RETURN_UVALUE
@@ -268,7 +268,7 @@ int main()
 	else if (calctype == "3" || calctype == "advanced algorithms" || calctype == "Advanced Algorithms" || calctype == "algorithms")
 	{		
 #ifdef ALLOW_UNTESTED
-		std::cout << "Current calculation type: Algorithms\n";
+		std::cout << cl_white << "[" << cl_iblue << " INFORMATION " << cl_white << "] " << "Current calculation type: Algorithms\n";
 		std::cout << "Please select an algorithm (isPrime || isEven)\n";
 		std::string algotype;
 		std::cin >> algotype;
