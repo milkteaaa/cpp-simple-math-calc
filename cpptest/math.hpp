@@ -58,7 +58,7 @@ namespace mathlibrary
 				if (x < 0)
 				{
 					std::cout << clred << "[MATH ERROR] Cannot sqrt a value of negative.\n" << cl_white;
-
+					return NULL;
 				}
 				else
 				{
