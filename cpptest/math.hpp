@@ -44,8 +44,11 @@ namespace mathlibrary
 				std::cout << clred << "[ALGORITHM] Division by 0 is undefined\n" << cl_white;
 				return NULL;
 			}
-			signed int a = x / y;
-			return a;
+			else
+			{
+				signed int a = x / y;
+				return a;
+			}
 		}
 
 		namespace advanced_algebra
@@ -57,8 +60,11 @@ namespace mathlibrary
 					std::cout << clred << "[ALGORITHM] Cannot sqrt a value of negative.\n" << cl_white;
 
 				}
-				double n = sqrt(x);
-				return n;
+				else
+				{
+					double n = sqrt(x);
+					return n;
+				}
 			}
 		}
 
