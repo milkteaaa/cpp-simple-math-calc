@@ -8,9 +8,12 @@
 //define this to use untested functions
 #define ALLOW_UNTESTED
 
+//@DEPRECATED: no longer required, type check already implemented
+//#define USE_ADVANCED_ALGEBRA
+
 /*
 * @TODO: clean up code, use a different .cpp file and a header for user input
-* @UNFINISHED: conversion (length, area, volume), advanced algorithms (prob later)
+* @UNFINISHED: conversion (length, area, volume), more advanced algorithms
 */
 
 int inputfromuser() // code to return user input for braces without having to use std::cin every single time
@@ -61,56 +64,83 @@ int main()
 	std::cin >> calctype;
 	if (calctype == "1" || calctype == "algebra" || calctype == "Algebra")
 	{
-		std::cout << cl_iyellow << "Current calculation type: Algebra\n";
-		std::cout << "Enter current x value: ";
-		signed int x{ inputfromuser() };
+		std::string albtype;
+		std::cout << "Please select Algebra type (Basic || Advanced)\n";
+		std::cin >> albtype;
+		if (albtype == "basic" || albtype == "Basic")
+		{
+			std::cout << cl_iyellow << "Current calculation type: Algebra\n";
+			std::cout << "Enter current x value: ";
+			signed int x{ inputfromuser() };
 #ifdef RETURN_UVALUE
-		std::cout << "Your x value is: " << x << "\n";
+			std::cout << "Your x value is: " << x << "\n";
 #endif
-		std::cout << "Enter current y value: ";
-		signed int y{ inputfromuser() };
+			std::cout << "Enter current y value: ";
+			signed int y{ inputfromuser() };
 #ifdef RETURN_UVALUE
-		std::cout << "Your y value is: " << y << "\n";
+			std::cout << "Your y value is: " << y << "\n";
 #endif
-		std::string calcmode;
-		std::cout << cl_iaqua << "Please select a calculation mode (add, subtract, multiply, divide)\n" << cl_white;
-		std::cin >> calcmode;
-		if (calcmode == "add" || calcmode == "Add" || calcmode == "+")
-		{
-			std::cout << "The answer is: " << mathlibrary::algebra::add(x, y) << std::endl;
+			std::string calcmode;
+			std::cout << cl_iaqua << "Please select a calculation mode (add, subtract, multiply, divide)\n" << cl_white;
+			std::cin >> calcmode;
+			if (calcmode == "add" || calcmode == "Add" || calcmode == "+")
+			{
+				std::cout << "The answer is: " << mathlibrary::algebra::add(x, y) << std::endl;
+			}
+			else if (calcmode == "subtract" || calcmode == "Subtract" || calcmode == "-")
+			{
+				std::cout << "The answer is: " << mathlibrary::algebra::subtract(x, y) << std::endl;
+			}
+			else if (calcmode == "multiply" || calcmode == "Multiply" || calcmode == "*")
+			{
+				std::cout << "The answer is: " << mathlibrary::algebra::multiply(x, y) << std::endl;
+			}
+			else if (calcmode == "divide" || calcmode == "Divide" || calcmode == "/")
+			{
+				std::cout << "The answer is: " << mathlibrary::algebra::divide(x, y) << std::endl;
+			}
+			else
+			{
+				std::cout << clred << "[ALGORITHM] Calculation method unknown, restarting in 5 seconds..\n" << cl_white;
+				Sleep(5000);
+				system("CLS");
+				main();
+			}
+			std::string aftermath;
+			std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
+			std::cin >> aftermath;
+			if (aftermath == "Y" || aftermath == "y")
+			{
+				system("CLS");
+				main();
+			}
+			else if (aftermath == "N" || aftermath == "n")
+			{
+				std::cout << clred << "[SYSTEM] See you again!\n";
+				Sleep(1000);
+				exit(0);
+			}
 		}
-		else if (calcmode == "subtract" || calcmode == "Subtract" || calcmode == "-")
+		else if (albtype == "advanced" || albtype == "Advanced")
 		{
-			std::cout << "The answer is: " << mathlibrary::algebra::subtract(x, y) << std::endl;
-		}
-		else if (calcmode == "multiply" || calcmode == "Multiply" || calcmode == "*")
-		{
-			std::cout << "The answer is: " << mathlibrary::algebra::multiply(x, y) << std::endl;
-		}
-		else if (calcmode == "divide" || calcmode == "Divide" || calcmode == "/")
-		{
-			std::cout << "The answer is: " << mathlibrary::algebra::divide(x, y) << std::endl;
-		}
-		else
-		{
-			std::cout << clred << "[ALGORITHM] Calculation method unknown, restarting in 5 seconds..\n" << cl_white;
-			Sleep(5000);
-			system("CLS");
-			main();
-		}
-		std::string aftermath;
-		std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
-		std::cin >> aftermath;
-		if (aftermath == "Y" || aftermath == "y")
-		{
-			system("CLS");
-			main();
-		}
-		else if (aftermath == "N" || aftermath == "n")
-		{
-			std::cout << clred << "[SYSTEM] See you again!\n";
-			Sleep(1000);
-			exit(0);
+			std::cout << "Current calculation type: Advanced Algebra\n";
+			std::cout << "Enter a number: ";
+			double x = { fractinputfromuser() };
+			std::cout << cl_igreen << "Square root of given number is: " << mathlibrary::algebra::advanced_algebra::squarert(x) << "\n" << cl_white;
+			std::string aftermath;
+			std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
+			std::cin >> aftermath;
+			if (aftermath == "Y" || aftermath == "y")
+			{
+				system("CLS");
+				main();
+			}
+			else if (aftermath == "N" || aftermath == "n")
+			{
+				std::cout << clred << "[SYSTEM] See you again!\n";
+				Sleep(1000);
+				exit(0);
+			}
 		}
 	}
 	else if (calctype == "2" || calctype == "conversion" || calctype == "Conversion") /* i do this for a reason ok */

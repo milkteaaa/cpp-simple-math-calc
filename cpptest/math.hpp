@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <iostream>
 #include <wtypes.h>
+#include "console.hpp"
 
 //#define ALLOW_UNTESTED
 
@@ -40,7 +41,7 @@ namespace mathlibrary
 		{
 			if (y == 0)
 			{
-				std::cout << "Division by 0 is undefined\n";
+				std::cout << clred << "[ALGORITHM] Division by 0 is undefined\n" << cl_white;
 				return NULL;
 			}
 			signed int a = x / y;
@@ -49,8 +50,13 @@ namespace mathlibrary
 
 		namespace advanced_algebra
 		{
-			double squarert(int x)
+			double squarert(double x)
 			{
+				if (x < 0)
+				{
+					std::cout << clred << "[ALGORITHM] Cannot sqrt a value of negative.\n" << cl_white;
+
+				}
 				double n = sqrt(x);
 				return n;
 			}
