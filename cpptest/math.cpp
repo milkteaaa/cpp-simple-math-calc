@@ -13,8 +13,6 @@
 * @UNFINISHED: conversion (length, area, volume), advanced algorithms (prob later)
 */
 
-int main();
-
 int inputfromuser() // code to return user input for braces without having to use std::cin every single time
 {
 	int input{};
