@@ -106,6 +106,8 @@ namespace mathlibrary
 #endif
 		int isPrime(int n)
 		{
+			if (n == 1)
+				return FALSE;			
 			int m = 0;
 			int i = 0;
 			int flag = 0;

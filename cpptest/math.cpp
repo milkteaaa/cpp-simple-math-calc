@@ -1,7 +1,6 @@
 ﻿#include "math.hpp"
 #include "console.hpp"
 #include <iostream>
-
 // define this so the console returns your input
 //#define RETURN_UVALUE
 
@@ -15,6 +14,9 @@
 * @TODO: clean up code, use a different .cpp file and a header for user input
 * @UNFINISHED: conversion (length, area, volume), more advanced algorithms
 */
+
+// declaring this so i can refactor some code
+int main();
 
 int inputfromuser() // code to return user input for braces without having to use std::cin every single time
 {
@@ -44,6 +46,24 @@ double fractinputfromuser() // double input implementation for fractional number
 		exit(EXIT_FAILURE);
 	}
 	return input;
+}
+
+void reload()
+{
+	std::string aftermath;
+	std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
+	std::cin >> aftermath;
+	if (aftermath == "Y" || aftermath == "y")
+	{
+		system("CLS");
+		main();
+	}
+	else if (aftermath == "N" || aftermath == "n")
+	{
+		std::cout << clred << "[SYSTEM] See you again!\n";
+		Sleep(1000);
+		exit(0);
+	}
 }
 
 std::string removespace(std::string& str) // quick implementation for removing whitespace
@@ -106,20 +126,7 @@ int main()
 				system("CLS");
 				main();
 			}
-			std::string aftermath;
-			std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
-			std::cin >> aftermath;
-			if (aftermath == "Y" || aftermath == "y")
-			{
-				system("CLS");
-				main();
-			}
-			else if (aftermath == "N" || aftermath == "n")
-			{
-				std::cout << clred << "[SYSTEM] See you again!\n";
-				Sleep(1000);
-				exit(0);
-			}
+			reload();
 		}
 		else if (albtype == "advanced" || albtype == "Advanced")
 		{
@@ -127,20 +134,7 @@ int main()
 			std::cout << "Enter a number: ";
 			double x = { fractinputfromuser() };
 			std::cout << cl_igreen << "Square root of given number is: " << mathlibrary::algebra::advanced_algebra::squarert(x) << "\n" << cl_white;
-			std::string aftermath;
-			std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
-			std::cin >> aftermath;
-			if (aftermath == "Y" || aftermath == "y")
-			{
-				system("CLS");
-				main();
-			}
-			else if (aftermath == "N" || aftermath == "n")
-			{
-				std::cout << clred << "[SYSTEM] See you again!\n";
-				Sleep(1000);
-				exit(0);
-			}
+			reload();
 		}
 	}
 	else if (calctype == "2" || calctype == "conversion" || calctype == "Conversion") /* i do this for a reason ok */
@@ -227,20 +221,7 @@ int main()
 				double x{ fractinputfromuser() };
 				std::cout << "Conversion result: " << mathlibrary::conversion::velocity::mpstokmph(x) << " km/h\n";
 			}
-			std::string aftermath;
-			std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
-			std::cin >> aftermath;
-			if (aftermath == "Y" || aftermath == "y")
-			{
-				system("CLS");
-				main();
-			}
-			else if (aftermath == "N" || aftermath == "n")
-			{
-				std::cout << clred << "[SYSTEM] See you again!\n";
-				Sleep(1000);
-				exit(0);
-			}
+			reload();
 		}
 		else
 		{
@@ -250,20 +231,7 @@ int main()
 			main();
 		}
 		/* simple restart approach instead of filling up the console making it hard to read */
-		std::string aftermath;
-		std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
-		std::cin >> aftermath;
-		if (aftermath == "Y" || aftermath == "y")
-		{
-			system("CLS");
-			main();
-		}
-		else if (aftermath == "N" || aftermath == "n")
-		{
-			std::cout << clred << "[SYSTEM] See you again!\n";
-			Sleep(1000);
-			exit(0);
-		}
+		reload();
 	}
 	else if (calctype == "3" || calctype == "advanced algorithms" || calctype == "Advanced Algorithms" || calctype == "algorithms")
 	{		
@@ -286,20 +254,7 @@ int main()
 			{
 				std::cout << cl_igreen << "Given number is not a prime number.\n" << cl_white;
 			}
-			std::string aftermath;
-			std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
-			std::cin >> aftermath;
-			if (aftermath == "Y" || aftermath == "y")
-			{
-				system("CLS");
-				main();
-			}
-			else if (aftermath == "N" || aftermath == "n")
-			{
-				std::cout << clred << "[SYSTEM] See you again!\n";
-				Sleep(1000);
-				exit(0);
-			}
+			reload();
 		}
 		else if (algotype == "iseven" || algotype == "isEven")
 		{
@@ -314,21 +269,8 @@ int main()
 			{
 				std::cout << cl_igreen << "Given number is odd.\n";
 			}
-			// i might put this aftermath thing into a seperate function, i'm tired of copy + pasting the same code over and over
-			std::string aftermath;
-			std::cout << cl_iaqua << "[SYSTEM] Do you want to start again? (Y/N)\n" << cl_white;
-			std::cin >> aftermath;
-			if (aftermath == "Y" || aftermath == "y")
-			{
-				system("CLS");
-				main();
-			}
-			else if (aftermath == "N" || aftermath == "n")
-			{
-				std::cout << clred << "[SYSTEM] See you again!\n";
-				Sleep(1000);
-				exit(0);
-			}
+			// done, i made it into a function
+			reload();
 		}
 #endif
 
