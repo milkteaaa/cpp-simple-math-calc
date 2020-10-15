@@ -10,6 +10,7 @@
 ///
 #include <algorithm>
 #include <iostream>
+#include <complex>
 #include <wtypes.h>
 #include "console.hpp"
 
@@ -66,6 +67,12 @@ namespace mathlibrary
 					return n;
 				}
 			}
+
+			std::complex<double> imaginarysqrt(std::complex<double> x)
+			{
+				std::complex<double> i = std::sqrt(std::complex<double>(x));
+				return i;
+			}
 		}
 
 	}
@@ -107,7 +114,9 @@ namespace mathlibrary
 		int isPrime(int n)
 		{
 			if (n == 1)
-				return FALSE;			
+				return FALSE;
+			if (n < 0)
+				return FALSE;
 			int m = 0;
 			int i = 0;
 			int flag = 0;

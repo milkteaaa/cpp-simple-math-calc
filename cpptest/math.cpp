@@ -130,11 +130,26 @@ int main()
 		}
 		else if (albtype == "advanced" || albtype == "Advanced")
 		{
-			std::cout << "Current calculation type: Advanced Algebra\n";
-			std::cout << "Enter a number: ";
-			double x = { fractinputfromuser() };
-			std::cout << cl_igreen << "Square root of given number is: " << mathlibrary::algebra::advanced_algebra::squarert(x) << "\n" << cl_white;
-			reload();
+			std::string advancedtype;
+			std::cout << "Please select a type of number (Real || Imaginary)\n";
+			std::cin >> advancedtype;
+			if (advancedtype == "real" || advancedtype == "Real")
+			{
+				std::cout << "Current calculation type: Advanced Algebra\n";
+				std::cout << "Enter a number: ";
+				double x = { fractinputfromuser() };
+				std::cout << cl_igreen << "Square root of given number is: " << mathlibrary::algebra::advanced_algebra::squarert(x) << "\n" << cl_white;
+				reload();
+			}
+			else if (advancedtype == "imaginary" || advancedtype == "Imaginary")
+			{
+				std::cout << "Current calculation type: Advanced Algebra (complex)\n";
+				std::cout << "Enter a number (complex): ";
+				std::complex<double> x = {};
+				std::cin >> x;
+				std::cout << cl_igreen << "Square root of given number is: " << mathlibrary::algebra::advanced_algebra::imaginarysqrt(x) << "\n" << cl_white;
+				reload();
+			}
 		}
 	}
 	else if (calctype == "2" || calctype == "conversion" || calctype == "Conversion") /* i do this for a reason ok */
