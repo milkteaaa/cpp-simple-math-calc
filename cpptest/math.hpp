@@ -20,25 +20,22 @@ namespace mathlibrary
 {
 	namespace algebra 
 	{
-		int add(signed int x, signed int y)
+		int add(int x, int y)
 		{
-			signed int a = x + y;
-			return a;
+			return x + y;			
 		}
 
-		int subtract(signed int x, signed int y)
+		int subtract(int x, int y)
 		{
-			signed int a = x - y;
-			return a;
+			return x - y;
 		}
 
-		int multiply(signed int x, signed int y)
+		int multiply(int x, int y)
 		{
-			signed int a = x * y;
-			return a;
+			return x * y;			
 		}
 
-		int divide(signed int x, signed int y)
+		int divide(int x, int y)
 		{
 			if (y == 0)
 			{
@@ -47,8 +44,7 @@ namespace mathlibrary
 			}
 			else
 			{
-				signed int a = x / y;
-				return a;
+				return x / y;				
 			}
 		}
 
@@ -63,8 +59,7 @@ namespace mathlibrary
 				}
 				else
 				{
-					double n = sqrt(x);
-					return n;
+					return sqrt(x);
 				}
 			}
 
@@ -88,14 +83,12 @@ namespace mathlibrary
 		{
 			double kmphtomps(double kmph)
 			{
-				double a = kmph * 3.6;
-				return a;
+				return kmph * 3.6;				
 			}
 
 			double mpstokmph(double mps)
 			{
-				double a = mps / 3.6;
-				return a;
+				return mps / 3.6;				
 			}
 		}
 	}

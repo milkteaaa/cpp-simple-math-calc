@@ -176,12 +176,27 @@ int main()
 			}
 			else if (convutype == "metric" || convutype == "Metric")
 			{
-				std::cout << "Please select a conversion unit (mm || cm || m || km)";
+				std::cout << "Please select a conversion unit (mm || cm || m || km)\n";
 					// this is actually time-consuming
 				std::string convunit;
 				if (convunit == "mm")
 				{
 					// @TODO: finish this
+					std::cout << "Select first type (cm || m || km)\n";
+					std::string metrictype;
+					std::cin >> metrictype;
+					if (metrictype == "cm")
+					{
+
+					}
+					else if (metrictype == "m")
+					{
+
+					}
+					else if (metrictype == "km")
+					{
+
+					}
 				}
 				else if (convunit == "cm")
 				{
